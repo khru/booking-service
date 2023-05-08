@@ -17,6 +17,7 @@ public class InsureBooking {
     this.bookingRepository.save(bookingPayload);
     Booking booking = this.bookingRepository.findByReference(bookingPayload.reference());
     InsurableBookingDTO insurableBooking = new InsurableBookingDTO(booking);
-    this.insuranceRepository.insure(insurableBooking);
+    InsuranceDTO insuredBooking = this.insuranceRepository.insure(insurableBooking);
+    this.insuranceRepository.save(insuredBooking);
   }
 }

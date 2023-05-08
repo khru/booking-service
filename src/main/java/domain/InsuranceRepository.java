@@ -1,7 +1,10 @@
 package domain;
 
 import application.InsurableBookingDTO;
+import application.InsuranceDTO;
 
 public interface InsuranceRepository {
-  void insure(InsurableBookingDTO booking);
+  InsuranceDTO insure(InsurableBookingDTO booking);
+
+  void save(InsuranceDTO insurance);
 }

@@ -15,9 +15,11 @@ public class InsureBookingShould {
     BookingDTO bookingPayload = new BookingDTO("A83K1C", "confirmation", "2022-09-13", "2022-09-17", 3);
     Booking booking = new Booking(bookingPayload);
     InsurableBookingDTO insurableBooking = new InsurableBookingDTO(booking);
+    InsuranceDTO insurance = new InsuranceDTO(insurableBooking);
     BookingRepository bookingRepository = mock(BookingRepository.class);
-    InsuranceRepository insuranceRepository = spy(InsuranceRepository.class);
+    InsuranceRepository insuranceRepository = mock(InsuranceRepository.class);
     when(bookingRepository.findByReference(bookingPayload.reference())).thenReturn(booking);
+    when(insuranceRepository.insure(insurableBooking)).thenReturn(insurance);
 
     InsureBooking insureBooking = new InsureBooking(insuranceRepository, bookingRepository);
 
@@ -25,6 +27,7 @@ public class InsureBookingShould {
 
     verify(bookingRepository).save(bookingPayload);
     verify(insuranceRepository).insure(insurableBooking);
+    verify(insuranceRepository).save(insurance);
 	}
 
 }
