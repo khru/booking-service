@@ -11,6 +11,12 @@ public class Booking {
 
   public Booking(BookingDTO bookingPayload) {
     this.bookingPayload = bookingPayload;
+
+    if (bookingPayload.people() == 3) {
+      this.premiumAmount = BigDecimal.valueOf(0.08 + (0.12 * 3));
+      return;
+    }
+
     if (bookingPayload.people() == 2) {
       this.premiumAmount = BigDecimal.valueOf(0.08 + (0.12 * 2));
       return;
