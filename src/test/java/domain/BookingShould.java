@@ -18,4 +18,18 @@ public class BookingShould {
 
     assertEquals(expectedAmount, new Booking(bookingPayload).premiumAmount);
   }
+
+  @Test
+  public void calculate_premium_amount_for_1_person_with_2_nights() {
+    BookingDTO bookingPayload = new BookingDTO("A_RANDOM_REFERENCE", "A_RANDOM_ACTION", "2022-09-11", "2022-09-13", 1);
+
+    assertEquals(BigDecimal.valueOf(0.28), new Booking(bookingPayload).premiumAmount);
+  }
+
+  @Test
+  public void calculate_premium_amount_for_1_person_with_3_nights() {
+    BookingDTO bookingPayload = new BookingDTO("A_RANDOM_REFERENCE", "A_RANDOM_ACTION", "2022-09-11", "2022-09-14", 1);
+
+    assertEquals(BigDecimal.valueOf(0.36), new Booking(bookingPayload).premiumAmount);
+  }
 }

@@ -72,3 +72,8 @@ Feature: View canceled insured bookings
 
 **Definition of Done**
 Given some cancelled insured bookings, when someone ask for them, then list them all.
+
+
+## Assumptions
+1. Since the only thing that is required is that there be a 200 so that the clients know that the message has arrived, I have decided not to do the exercise with a framework that manages the responses.
+2. Since we only have 1 client, I am not going to add the Booking dependency of knowing different time zones, even though it would be one of the first points to attack in the following implementations.
