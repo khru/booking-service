@@ -6,22 +6,14 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Booking {
+  public static final double PRICE_PER_PERSON = 0.12;
+  public static final double PRICE_PER_NIGHT = 0.08;
   public BigDecimal premiumAmount;
   private final BookingDTO bookingPayload;
 
   public Booking(BookingDTO bookingPayload) {
     this.bookingPayload = bookingPayload;
-
-    if (bookingPayload.people() == 3) {
-      this.premiumAmount = BigDecimal.valueOf(0.08 + (0.12 * 3));
-      return;
-    }
-
-    if (bookingPayload.people() == 2) {
-      this.premiumAmount = BigDecimal.valueOf(0.08 + (0.12 * 2));
-      return;
-    }
-    this.premiumAmount = BigDecimal.valueOf(0.08 + 0.12);
+    this.premiumAmount = BigDecimal.valueOf(PRICE_PER_NIGHT + (PRICE_PER_PERSON * bookingPayload.people()));
   }
 
 
