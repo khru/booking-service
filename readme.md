@@ -77,3 +77,8 @@ Given some cancelled insured bookings, when someone ask for them, then list them
 ## Assumptions
 1. Since the only thing that is required is that there be a 200 so that the clients know that the message has arrived, I have decided not to do the exercise with a framework that manages the responses.
 2. Since we only have 1 client, I am not going to add the Booking dependency of knowing different time zones, even though it would be one of the first points to attack in the following implementations.
+3. Currency would be EUR for now
+4. I could have created 2 more classes
+    * FlexibleInsured (this could contain a price)
+    * Price -> in JVM an implementation of the JSR 354 – "Currency and Money")
+5. Because I know that I will not call any API I did not put too much effort on the DTO
