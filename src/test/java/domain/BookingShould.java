@@ -25,5 +25,5 @@ public class BookingShould {
     BookingDTO bookingPayload = new BookingDTO("A_RANDOM_REFERENCE", "A_RANDOM_ACTION", checkIn, checkOut, 1);
 
     assertEquals(expectedAmount, new Booking(bookingPayload).premiumAmount);
-
+  }
 }
