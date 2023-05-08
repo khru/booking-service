@@ -20,13 +20,18 @@ public class Booking {
   public Booking(BookingDTO bookingPayload) {
     this.bookingPayload = bookingPayload;
     this.premiumAmount = BigDecimal.valueOf(PRICE_PER_NIGHT + (PRICE_PER_PERSON * bookingPayload.people()));
-    if (bookingPayload.checkOut().equals("2022-09-13")) {
-      this.premiumAmount = BigDecimal.valueOf((PRICE_PER_NIGHT * 2) + (PRICE_PER_PERSON * bookingPayload.people()));
-    }
+    Date checkInDate = null;
+      Date checkOutDate = null;
+      try {
+        checkInDate = simpleDateFormat.parse(bookingPayload.checkIn());
+        checkOutDate = simpleDateFormat.parse(bookingPayload.checkOut());
+      } catch (ParseException e) {
+        throw new RuntimeException(e);
+      }
 
-    if (bookingPayload.checkOut().equals("2022-09-14")) {
-      this.premiumAmount = BigDecimal.valueOf((PRICE_PER_NIGHT * 3) + (PRICE_PER_PERSON * bookingPayload.people()));
-    }
+      long diffInMillies = Math.abs(checkOutDate.getTime() - checkInDate.getTime());
+      long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+      this.premiumAmount = BigDecimal.valueOf((PRICE_PER_NIGHT * diff) + (PRICE_PER_PERSON * bookingPayload.people()));
   }
 
 

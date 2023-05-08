@@ -19,17 +19,11 @@ public class BookingShould {
     assertEquals(expectedAmount, new Booking(bookingPayload).premiumAmount);
   }
 
-  @Test
-  public void calculate_premium_amount_for_1_person_with_2_nights() {
-    BookingDTO bookingPayload = new BookingDTO("A_RANDOM_REFERENCE", "A_RANDOM_ACTION", "2022-09-11", "2022-09-13", 1);
+  @ParameterizedTest
+  @CsvSource({"2022-09-11, 2022-09-13, 0.28", "2022-09-11, 2022-09-14, 0.36", "2022-09-11, 2022-09-15, 0.44"})
+  public void calculate_premium_amount_1_person_with_several_nights(String checkIn, String checkOut, BigDecimal expectedAmount) {
+    BookingDTO bookingPayload = new BookingDTO("A_RANDOM_REFERENCE", "A_RANDOM_ACTION", checkIn, checkOut, 1);
 
-    assertEquals(BigDecimal.valueOf(0.28), new Booking(bookingPayload).premiumAmount);
-  }
+    assertEquals(expectedAmount, new Booking(bookingPayload).premiumAmount);
 
-  @Test
-  public void calculate_premium_amount_for_1_person_with_3_nights() {
-    BookingDTO bookingPayload = new BookingDTO("A_RANDOM_REFERENCE", "A_RANDOM_ACTION", "2022-09-11", "2022-09-14", 1);
-
-    assertEquals(BigDecimal.valueOf(0.36), new Booking(bookingPayload).premiumAmount);
-  }
 }
