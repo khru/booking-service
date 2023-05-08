@@ -11,10 +11,10 @@ public class Booking {
 
   public Booking(BookingDTO bookingPayload) {
     this.bookingPayload = bookingPayload;
-    this.calculatePremiumAmount();
-  }
-
-  private void calculatePremiumAmount() {
+    if (bookingPayload.people() == 2) {
+      this.premiumAmount = BigDecimal.valueOf(0.08 + (0.12 * 2));
+      return;
+    }
     this.premiumAmount = BigDecimal.valueOf(0.08 + 0.12);
   }
 
