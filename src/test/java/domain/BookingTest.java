@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BookingShould {
+public class BookingTest {
 
   @ParameterizedTest
   @CsvSource({"1, 0.2", "2, 0.32", "3, 0.44"})

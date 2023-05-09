@@ -1,3 +1,31 @@
+# Tech stack
+- Java
+- Mockito
+
+## Dependencies with SDKMan
+
+Install sdkman from https://sdkman.io/
+
+```bash
+curl -s "https://get.sdkman.io" | bash
+```
+
+Install dependencies
+```bash
+sdk env install
+```
+
+Use dependencies
+```bash
+sdk env
+```
+
+## Run test from the terminal
+
+```maven
+mvn test
+```
+
 # Understanding
 
 ## US1 - Insure confirmed bookings

@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class BookingDateShould {
+public class BookingDateTest {
   @Test
   public void create_a_booking_date_with_the_correct_format() {
     BookingDate bookingDate = new BookingDate("2023-01-01");
