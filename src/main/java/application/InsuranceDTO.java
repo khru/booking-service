@@ -3,6 +3,6 @@ package application;
 import application.InsurableBookingDTO;
 
 public class InsuranceDTO {
-  public InsuranceDTO(InsurableBookingDTO insurableBooking) {
+  public InsuranceDTO(String reference, String policy) {
   }
 }

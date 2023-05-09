@@ -3,6 +3,7 @@ package application;
 
 import domain.Booking;
 
-public record InsurableBookingDTO(Booking booking) {
+import java.math.BigDecimal;
 
+public record InsurableBookingDTO(String reference, String checkIn, String checkOut, int people, BigDecimal premiumAmount, String currency, String productName) {
 }
