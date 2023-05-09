@@ -79,6 +79,7 @@ Given some cancelled insured bookings, when someone ask for them, then list them
 2. Since we only have 1 client, I am not going to add the Booking dependency of knowing different time zones, even though it would be one of the first points to attack in the following implementations.
 3. Currency would be EUR for now
 4. I could have created 2 more classes
-    * FlexibleInsured (this could contain a price)
+    * FlexibleInsured (this could contain a price and the booking)
     * Price -> in JVM an implementation of the JSR 354 – "Currency and Money")
-5. Because I know that I will not call any API I did not put too much effort on the DTO
+5. Because I only had time to tackle the first user story I've only created one use case this could change latter easy
+6. I've use mocks and did not worry too much about the DTO to send information because I've been doing exploratory testing on the use case and this gave me the opportunity to change my mind several times, that's why by looking at the commits It could be difficult to follow my train of thoughts.
