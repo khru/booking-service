@@ -73,6 +73,9 @@ Feature: View canceled insured bookings
 **Definition of Done**
 Given some cancelled insured bookings, when someone ask for them, then list them all.
 
+## Architectural proposal for the case MVP
+![Monolito](./doc/Monolito-2023-03-24-0829.png)
+
 
 ## Assumptions
 1. Since the only thing that is required is that there be a 200 so that the clients know that the message has arrived, I have decided not to do the exercise with a framework that manages the responses.
